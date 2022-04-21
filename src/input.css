@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.calculator {
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  height: 70vh;
+  border: 1px solid black;
+  margin: auto auto;
+  border-radius: 10px;
+}
+.calculator .top p {
+  font-size: 2rem;
+  font-weight: 500;
+  font-family: Roboto, serif;
+  font-style: italic;
+}
+.calculator .data-box .editor {
+  font-size: 1.7rem;
+}
+.calculator .data-box .viewer {
+  font-size: 1.9rem;
+  font-family: monospace;
+  font-weight: bold;
+}
+.calculator .btn {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+}
+.calculator .btn .first-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.calculator .btn .first-row .clr {
+  flex: 3;
+  background-color: cornflowerblue;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: 10px;
+}
+.calculator .btn .first-row .del {
+  flex: 1;
+  background-color: firebrick;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.calculator .btn .sec-row, .calculator .btn .third-row, .calculator .btn .fourth-row, .calculator .btn .fifth-row {
+  display: flex;
+  gap: 0.5rem;
+}
+.calculator .btn .sec-row .seven, .calculator .btn .sec-row .eight, .calculator .btn .sec-row .nine, .calculator .btn .sec-row .add, .calculator .btn .sec-row .six, .calculator .btn .sec-row .five, .calculator .btn .sec-row .four, .calculator .btn .sec-row .three, .calculator .btn .sec-row .two, .calculator .btn .sec-row .one, .calculator .btn .sec-row .sub, .calculator .btn .sec-row .mul, .calculator .btn .sec-row .divide, .calculator .btn .sec-row .zero, .calculator .btn .sec-row .point, .calculator .btn .sec-row .percentage, .calculator .btn .third-row .seven, .calculator .btn .third-row .eight, .calculator .btn .third-row .nine, .calculator .btn .third-row .add, .calculator .btn .third-row .six, .calculator .btn .third-row .five, .calculator .btn .third-row .four, .calculator .btn .third-row .three, .calculator .btn .third-row .two, .calculator .btn .third-row .one, .calculator .btn .third-row .sub, .calculator .btn .third-row .mul, .calculator .btn .third-row .divide, .calculator .btn .third-row .zero, .calculator .btn .third-row .point, .calculator .btn .third-row .percentage, .calculator .btn .fourth-row .seven, .calculator .btn .fourth-row .eight, .calculator .btn .fourth-row .nine, .calculator .btn .fourth-row .add, .calculator .btn .fourth-row .six, .calculator .btn .fourth-row .five, .calculator .btn .fourth-row .four, .calculator .btn .fourth-row .three, .calculator .btn .fourth-row .two, .calculator .btn .fourth-row .one, .calculator .btn .fourth-row .sub, .calculator .btn .fourth-row .mul, .calculator .btn .fourth-row .divide, .calculator .btn .fourth-row .zero, .calculator .btn .fourth-row .point, .calculator .btn .fourth-row .percentage, .calculator .btn .fifth-row .seven, .calculator .btn .fifth-row .eight, .calculator .btn .fifth-row .nine, .calculator .btn .fifth-row .add, .calculator .btn .fifth-row .six, .calculator .btn .fifth-row .five, .calculator .btn .fifth-row .four, .calculator .btn .fifth-row .three, .calculator .btn .fifth-row .two, .calculator .btn .fifth-row .one, .calculator .btn .fifth-row .sub, .calculator .btn .fifth-row .mul, .calculator .btn .fifth-row .divide, .calculator .btn .fifth-row .zero, .calculator .btn .fifth-row .point, .calculator .btn .fifth-row .percentage {
+  flex: 1;
+  padding: 0.5rem;
+  background-color: blueviolet;
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+/*# sourceMappingURL=input.css.map */

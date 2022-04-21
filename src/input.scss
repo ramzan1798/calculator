@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  //height: ;
+}
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  height: 70vh;
+  border: 1px solid black;
+  margin: auto auto;
+  //background-color: #9ca3af;
+  border-radius: 10px;
+  .top {
+    p {
+      font-size: 2rem;
+      font-weight: 500;
+      font-family: Roboto,serif;
+      font-style: italic;
+    }
+  }
+
+  .data-box {
+    .editor {
+      font-size: 1.7rem;
+    }
+    .viewer {
+      font-size: 1.9rem;
+      font-family: monospace;
+      font-weight: bold;
+    }
+  }
+  .btn {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+
+    .first-row {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      .clr {
+        //padding: 1rem;
+        flex: 3;
+        background-color: cornflowerblue;
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+        border-radius: 10px;
+      }
+      .del {
+        flex: 1;
+        background-color: firebrick;
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+        border-radius: 10px;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    .sec-row , .third-row , .fourth-row , .fifth-row {
+      display: flex;
+      gap: 0.5rem;
+
+      .seven , .eight , .nine , .add , .six, .five , .four , .three , .two , .one , .sub , .mul , .divide, .zero , .point , .percentage{
+        flex: 1;
+        padding: 0.5rem;
+        background-color: blueviolet;
+        color: white;
+        font-size: 3rem;
+        font-weight: bold;
+        border-radius: 10px;
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="src/output.css" rel="stylesheet">
+</head>
+
+<body class="h-screen w-screen flex content-center justify-center bg-purple-500">
+
+<div class="calculator bg-green-600">
+
+    <div class="top flex justify-between content-center px-4 py-5">
+        <div class="flex items-center">
+            <div class="h-10 w-10 border-r-2 border-gray-500 bg-red-800"></div>
+            <div class="h-10 w-10 border-r-2 border-gray-500 bg-red-800"></div>
+            <div class="h-10 w-10 border-r-2 border-gray-500 bg-red-800"></div>
+            <div class="h-10 w-10 border-r-2 border-gray-500 bg-red-800"></div>
+            <div class="h-10 w-10 bg-red-800"></div>
+        </div>
+        <p>Nokia</p>
+    </div>
+
+    <div class="data-box border-4 border-black rounded-md mx-4">
+        <div class="editor bg-transparent w-full h-10 bg-yellow-500 px-1 text-right"></div>
+        <div class="viewer w-full h-10 bg-yellow-400 px-1 text-right">4000</div>
+    </div>
+
+    <div class="btn">
+        <div class="first-row">
+            <button class="clr">CLR</button>
+            <button class="del">⌫</button>
+        </div>
+        <div class="sec-row">
+            <button class="seven">7</button>
+            <button class="eight">8</button>
+            <button class="nine">9</button>
+            <button class="add">+</button>
+        </div>
+        <div class="third-row">
+            <button class="four">4</button>
+            <button class="five">5</button>
+            <button class="six">6</button>
+            <button class="sub">-</button>
+        </div>
+        <div class="fourth-row">
+            <button class="three">3</button>
+            <button class="two">2</button>
+            <button class="one">1</button>
+            <button class="mul">*</button>
+        </div>
+        <div class="fifth-row">
+            <button class="zero">0</button>
+            <button class="point">.</button>
+            <button class="percentage">%</button>
+            <button class="divide">/</button>
+        </div>
+    </div>
+</div>
+
+<script src="src/calculator.js"></script>
+</body>
+</html>
