@@ -1,6 +1,27 @@
 const editor = document.querySelector('.editor');
 const viewer = document.querySelector('.viewer');
 
+const numericKeys = [
+    document.querySelector('.zero'),
+    document.querySelector('.one'),
+    document.querySelector('.two'),
+    document.querySelector('.three'),
+    document.querySelector('.four'),
+    document.querySelector('.five'),
+    document.querySelector('.six'),
+    document.querySelector('.seven'),
+    document.querySelector('.eight'),
+    document.querySelector('.nine')
+];
+
+const operatorKeys = [
+    document.querySelector('.add'),
+    document.querySelector('.sub'),
+    document.querySelector('.mul'),
+    document.querySelector('.divide'),
+    document.querySelector('.percentage')
+];
+
 let editorQueue = [];
 
 const reRenderEditor = () => {
@@ -12,7 +33,6 @@ const reRenderEditor = () => {
         return str;
     })();
 };
-
 const reRenderOutput = () => {
     viewer.innerText = (() => {
         let wordListQueue = [];
@@ -90,59 +110,12 @@ const reRenderOutput = () => {
     })();
 }
 
-const numericKeys = [
-    document.querySelector('.zero'),
-    document.querySelector('.one'),
-    document.querySelector('.two'),
-    document.querySelector('.three'),
-    document.querySelector('.four'),
-    document.querySelector('.five'),
-    document.querySelector('.six'),
-    document.querySelector('.seven'),
-    document.querySelector('.eight'),
-    document.querySelector('.nine')
-];
-
-numericKeys.forEach(numericKey => {
-    numericKey.addEventListener('click', e => {
-        editorQueue.push(e.target.innerText);
-        reRenderEditor();
-        reRenderOutput();
-    });
-});
-
-document.querySelector('.clr').addEventListener('click', e => {
-    editorQueue = [];
-    editor.innerText = '';
-    viewer.innerText = '';
-});
-
-document.querySelector('.del').addEventListener('click', e => {
-    editorQueue.pop();
+const numericKeyPressEventHandler = value => {
+    editorQueue.push(value);
     reRenderEditor();
     reRenderOutput();
-});
-
-[
-    document.querySelector('.add'),
-    document.querySelector('.sub'),
-    document.querySelector('.mul'),
-    document.querySelector('.divide'),
-    document.querySelector('.percentage')
-].forEach(operator => {
-    operator.addEventListener('click', e => {
-        const lastElement = editorQueue.pop();
-
-        if (!['-', '+', '*', '/', '%', '.'].includes(lastElement) && lastElement !== undefined) {
-            editorQueue.push(lastElement);
-            editorQueue.push(e.target.innerText);
-            reRenderEditor();
-            reRenderOutput();
-        }
-    });
-});
-
-document.querySelector('.point').addEventListener('click', e => {
+}
+const pointEventHandler = () => {
     let lastOperatorIndex = -1;
     for (let i = 0; i < editorQueue.length; i++) {
         if (['+', '-', '*', '/', '%'].includes(editorQueue[i])) {
@@ -159,5 +132,56 @@ document.querySelector('.point').addEventListener('click', e => {
             reRenderEditor();
             reRenderOutput();
         }
+    }
+}
+const clearScreenEventHandler = () => {
+    editorQueue = [];
+    editor.innerText = '';
+    viewer.innerText = '';
+}
+const deleteKeyEventHandler = () => {
+    editorQueue.pop();
+    reRenderEditor();
+    reRenderOutput();
+}
+const operatorKeyEventHandler = keyText => {
+    const lastElement = editorQueue.pop();
+
+    if (!['-', '+', '*', '/', '%', '.'].includes(lastElement) && lastElement !== undefined) {
+        editorQueue.push(lastElement);
+        editorQueue.push(keyText);
+        reRenderEditor();
+        reRenderOutput();
+    }
+}
+
+numericKeys.forEach(numericKey => {
+    numericKey.addEventListener('click', e => {
+        numericKeyPressEventHandler(e.target.innerText);
+    });
+});
+
+document.querySelector('.point').addEventListener('click', e => pointEventHandler());
+
+document.querySelector('.clr').addEventListener('click', e => clearScreenEventHandler());
+document.querySelector('.del').addEventListener('click', e => deleteKeyEventHandler());
+
+operatorKeys.forEach(operator => {
+    operator.addEventListener('click', e => {
+        operatorKeyEventHandler(e.target.innerText);
+    });
+});
+
+document.addEventListener('keydown', e => {
+    if (['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'].includes(e.key)) {
+        numericKeyPressEventHandler(e.key);
+    } else if (e.key === '.') {
+        pointEventHandler()
+    } else if (e.key === 'Backspace') {
+        deleteKeyEventHandler()
+    } else if (e.key === 'Delete') {
+       clearScreenEventHandler()
+    } else if (['+', '-', '%', '/', '*'].includes(e.key)) {
+        operatorKeyEventHandler(e.key);
     }
 });
